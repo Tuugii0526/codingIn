@@ -1,9 +1,7 @@
 function swap(arr, x, y) {
     [arr[x], arr[y]] = [arr[y], arr[x]];
-    console.log('changed array:',arr)
   }
 function pivot(arr, left = 0, right = arr.length - 1) {
-    console.log('original array is:',arr);
     let shift = left;
     for (let i = left + 1; i <= right; i++) {
       //Move all the small elements on the left side
@@ -14,8 +12,6 @@ function pivot(arr, left = 0, right = arr.length - 1) {
   
     //Finally swapping the last element with the left
     swap(arr, left, shift);
-    console.log('THe last array is:',arr)
-    console.log('shift is:',shift)
     return shift;
 
   }
@@ -30,7 +26,9 @@ function pivot(arr, left = 0, right = arr.length - 1) {
     return array;
   }
   
-
+console.time('time:')
+quickSort([1,4,2,8,345,123,43,32,5643,63,123,43,2,55,1,234,92,1,4,2,8,345,123,43,32,5643,63,123,43,2,55,1,234,92])
+console.timeEnd('time:')
   function quickSort(array) {
     if (array.length === 0) {
       return [];

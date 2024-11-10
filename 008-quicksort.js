@@ -1,7 +1,7 @@
 function swap(arr, i, j) {
   [arr[i], arr[j]] = [arr[j], arr[i]];
 }
-function partition(arr, low, high) {
+function partition(arr, low=0, high=arr.length-1) {
   let pivot = low;
   for (let i = low + 1; i <= high; i++) {
     if (arr[i] <arr[low]) {
@@ -9,8 +9,6 @@ function partition(arr, low, high) {
     }
   }
   swap(arr, low, pivot);
-  console.log('swapped array:',arr)
-  console.log('pivot is:',pivot)
   return pivot;
 }
 function quickSort(array, low = 0, high = array.length - 1) {
@@ -23,4 +21,6 @@ function quickSort(array, low = 0, high = array.length - 1) {
   }
   // Only change code above this line
 }
-console.log(quickSort([3,9,1,13,15,151,3,13,25,15,0]))
+console.time('time:')
+quickSort([1,4,2,8,345,123,43,32,5643,63,123,43,2,55,1,234,92,1,4,2,8,345,123,43,32,5643,63,123,43,2,55,1,234,92]) //0.615ms
+console.timeEnd('time:')

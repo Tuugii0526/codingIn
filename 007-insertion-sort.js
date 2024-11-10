@@ -15,5 +15,5 @@ function insertionSort(array) {
    // Only change code above this line
  }
  console.time('time:')
- insertionSort([1,4,2,8,345,123,43,32,5643,63,123,43,2,55,1,234,92])
+ insertionSort([1,4,2,8,345,123,43,32,5643,63,123,43,2,55,1,234,92,1,4,2,8,345,123,43,32,5643,63,123,43,2,55,1,234,92])  //0.6ms
  console.timeEnd('time:')
