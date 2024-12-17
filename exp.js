@@ -17,34 +17,38 @@ class CircularQueue {
 
   enqueue(item) {
     // Only change code below this line
-    if (this.write + 1 < this.read) {
-      if (this.write + 1 > this.max) {
-        this.write = 0;
-      } else {
-        this.write++;
-      }
-      this.queue[this.write] = item;
-      return item;
+    if (!this.queue[this.write + 1]) {
+    } else {
+      return null;
     }
-    return null;
     // Only change code above this line
   }
 
   dequeue() {
     // Only change code below this line
-    if (this.read + 1 < this.write) {
-      if (this.read + 1 > this.max) {
-        this.read = 0;
-      } else {
-        this.read++;
-      }
+    if (this.queue[this.read]) {
       const readItem = this.queue[this.read];
       this.queue[this.read] = null;
+      this.read = (this.read + 1) % (this.max + 1);
       return readItem;
+    } else {
+      return null;
     }
-    return null;
     // Only change code above this line
   }
 }
-const cirQueue = new CircularQueue(3);
-console.log(cirQueue.enqueue(3));
+const q = new CircularQueue(3);
+console.log(q.enqueue(3));
+console.log(q.print());
+// console.log(q.dequeue());
+// console.log(q.dequeue());
+console.log(q.enqueue(10));
+console.log(q.print());
+console.log(q.enqueue(21));
+console.log(q.print());
+
+console.log(q.enqueue(21));
+console.log(q.print());
+
+console.log("queue read:", q.read);
+console.log("queue write", q.write);
