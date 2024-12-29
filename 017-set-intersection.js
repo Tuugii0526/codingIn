@@ -50,24 +50,13 @@ class Set {
   }
   // Only change code below this line
   intersection(set) {
-    const intersection = new Set();
-    intersection.union(this.dictionary);
-    const arr = [];
-    const addToInt = (value) => {
-      if (!intersection.add(value)) {
-        arr.push(value);
+    const intersectionSet = new Set();
+    set.values().forEach((value) => {
+      if (this.values().includes(value)) {
+        intersectionSet.add(value);
       }
-    };
-    set.values().forEach(addToInt);
-    return arr;
+    });
+    return intersectionSet;
   }
   // Only change code above this line
 }
-const set1 = new Set();
-set1.add(1);
-set1.add(3);
-set1.add(8);
-const set2 = new Set();
-set2.add(1);
-set2.add(3);
-console.log(set1.intersection(set2));
